@@ -10,13 +10,12 @@
           <span class="text-[#00f0ff] text-right">Player O:</span>
           <input type="text" v-model="btnStore.playerO" placeholder="Name" maxlength="4" class="border border-[#00f0ff] rounded px-2 py-1 w-25 text-white" />
         </div>
-        <button
-          class="mt-4 px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition w-55 h-12 cursor-pointer"
+        <BaseButton
           type="submit"
           :disabled="!btnStore.playerX || !btnStore.playerO"
         >
           Start
-        </button>
+        </BaseButton>
       </form>
     </template>
     <template v-else-if="btnStore.onGame === true && btnStore.playerX && btnStore.playerO">
@@ -60,6 +59,7 @@
 <script setup lang="ts">
 import { computed, watch } from 'vue';
 import { useBtnStore } from '../stores/counter';
+import BaseButton from './BaseButton.vue';
 const btnStore = useBtnStore()
 
 const props = defineProps<{

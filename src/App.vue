@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import BoardMain from './components/BoardMain.vue'
 import NewGameButton from './components/NewGameButton.vue'
-import ResetButton from './components/ResetButton.vue'
+import NextButton from './components/NextButton.vue'
 import StateMessage from './components/StateMessage.vue'
 import { useBtnStore } from './stores/counter'
 const btnStore = useBtnStore()
@@ -38,8 +38,8 @@ const btnStore = useBtnStore()
     </div>
     <div class="flex justify-center gap-4 mt-4">
       <NewGameButton @newGame="btnStore.newGame" />
-      <ResetButton
-        v-if="btnStore.playerX !== '' && btnStore.playerO !== ''"
+      <NextButton
+        v-if="btnStore.onGame && !btnStore.newGameSwitch"
         :disabled="btnStore.onGame && !btnStore.winner"
         @reset="btnStore.resetGame"
       />

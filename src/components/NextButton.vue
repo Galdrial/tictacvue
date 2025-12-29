@@ -1,16 +1,11 @@
 <template>
-  <button
-    class="mt-4 px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition text-xl w-55 h-12 cursor-pointer"
-    @click="onClick"
-    :disabled="disabled"
-  >
-    Next
-  </button>
+  <BaseButton :disabled="disabled" @click="onClick">Next</BaseButton>
 </template>
 
 <script setup lang="ts">
-const emit = defineEmits(['reset']);
 import { useBtnStore } from '../stores/counter';
+import BaseButton from './BaseButton.vue';
+const emit = defineEmits(['reset']);
 const btnStore = useBtnStore()
 const props = defineProps<{ disabled?: boolean }>()
 function onClick() {
