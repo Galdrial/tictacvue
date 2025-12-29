@@ -11,7 +11,7 @@ const btnStore = useBtnStore()
   <header>
     <a href="/">
       <h1
-        class="flex justify-center font-['Press_Start_2P'] text-[60px] font-bold text-[#F7901A] text-shadow-[0_0_8px_#F7901A,0_0_16px_#F7901A] "
+        class="flex justify-center font-['Press_Start_2P'] text-[2rem] sm:text-[60px] font-bold text-[#F7901A] text-shadow-[0_0_8px_#F7901A,0_0_16px_#F7901A] "
       >
         TIC TAC VUE
       </h1>
@@ -40,6 +40,7 @@ const btnStore = useBtnStore()
       <NewGameButton @newGame="btnStore.newGame" />
       <ResetButton
         v-if="btnStore.playerX !== '' && btnStore.playerO !== ''"
+        :disabled="btnStore.onGame && !btnStore.winner"
         @reset="btnStore.resetGame"
       />
     </div>

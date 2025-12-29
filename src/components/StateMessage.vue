@@ -1,17 +1,17 @@
 <template>
-  <div class="mb-4 text-xl font-bold text-center ">
+  <div class="mb-4 text-xl font-bold text-center">
     <template v-if="props.newGameSwitch">
       <form class="flex flex-col items-center gap-4" @submit.prevent="confirmNames">
         <div class="flex flex-row items-center justify-center gap-4 w-full">
           <span class="text-[#F7901A] text-right">Player X:</span>
-          <input type="text" v-model="btnStore.playerX" placeholder="Name" class="border border-[#F7901A] rounded px-2 py-1 w-48 text-white" />
+          <input type="text" v-model="btnStore.playerX" placeholder="Name" maxlength="4" class="border border-[#F7901A] rounded px-2 py-1 w-25 text-white" />
         </div>
         <div class="flex flex-row items-center justify-center gap-4 w-full">
           <span class="text-[#00f0ff] text-right">Player O:</span>
-          <input type="text" v-model="btnStore.playerO" placeholder="Name" class="border border-[#00f0ff] rounded px-2 py-1 w-48 text-white" />
+          <input type="text" v-model="btnStore.playerO" placeholder="Name" maxlength="4" class="border border-[#00f0ff] rounded px-2 py-1 w-25 text-white" />
         </div>
         <button
-          class="mt-4 px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition w-55"
+          class="mt-4 px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition w-55 h-12 cursor-pointer"
           type="submit"
           :disabled="!btnStore.playerX || !btnStore.playerO"
         >
@@ -23,7 +23,7 @@
       <div class="text-white">
       Score:
       <br><br>
-      <span class="text-player-x">{{ `${btnStore.playerX}:` }}</span>{{ btnStore.score.X }}  <span class="text-player-o">{{ `${btnStore.playerO}:` }}</span>{{ btnStore.score.O }}  DRAW:{{ btnStore.score.draw }}
+      <span class="text-player-x">{{ `${btnStore.playerX}:` }}</span>{{ btnStore.score.X }} <span class="text-player-o">{{ `${btnStore.playerO}:` }}</span>{{ btnStore.score.O }} DRAW:{{ btnStore.score.draw }}
       <br><br>
       <template v-if="status.type === 'winner'">
         <span :class="status.class">{{ status.name }}</span> ha vinto!
@@ -45,7 +45,7 @@
           {{ status.message }}
         </template>
         <template v-else-if="status.type === 'welcome'">
-          <div class="w-130 text-3xl text-white" v-html="status.message">
+          <div class="pt-6 sm:pt-0 sm:w-130 sm:text-3xl text-white" v-html="status.message">
           </div>
         </template>
         <template v-else-if="status.type === 'turn'">

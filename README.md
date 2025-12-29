@@ -8,10 +8,8 @@ This template should help get you started developing with Vue 3 in Vite.
 
 ## Recommended Browser Setup
 
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
   - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd) 
   - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
   - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
   - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
 
@@ -46,3 +44,14 @@ npm run build
 ```sh
 npm run lint
 ```
+
+## Branching Strategy
+
+Development is primarily done on the `development` branch. New features and bug fixes should be implemented in dedicated branches based on the following strategy:
+
+- `main`: Stable production-ready code
+- `development`: Active development branch
+- `feature/<feature-name>`: For new features
+- `hotfix/<hotfix-name>`: For urgent fixes
+
+When a feature or fix is complete, merge it into `development`. Periodically, merge `development` into `main` for releases.
