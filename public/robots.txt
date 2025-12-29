@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+# Aggiungi qui eventuali regole specifiche per i bot
