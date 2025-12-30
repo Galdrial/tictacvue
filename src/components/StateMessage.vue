@@ -44,7 +44,7 @@
           {{ status.message }}
         </template>
         <template v-else-if="status.type === 'welcome'">
-          <div class="sm:w-130 sm:text-3xl text-white" v-html="status.message">
+          <div class="leading-9 text-2xl sm:w-130 sm:text-3xl text-white" v-html="status.message">
           </div>
         </template>
         <template v-else-if="status.type === 'turn'">
