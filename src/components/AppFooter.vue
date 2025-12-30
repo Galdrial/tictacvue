@@ -1,5 +1,5 @@
 <template>
-  <nav class="w-full flex fixed bottom-0 left-0 items-center justify-center flex-wrap gap-2 sm:gap-16 p-2 bg-[rgba(0,0,0,0.7)] z-50" aria-label="Footer">
+  <nav class="w-full flex sticky bottom-0 left-0 items-center justify-center flex-wrap gap-2 sm:gap-16 p-2 bg-[rgba(0,0,0,0.7)] z-50" aria-label="Footer">
       
       <p class='text-white text-center'>© 2025 Made with Passion by Simone Camerano</p>
       
