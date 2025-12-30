@@ -51,9 +51,10 @@ const ticTacToeStore = useTicTacToeStore()
               <div class="col-span-3 row-span-3 w-full h-full flex flex-col items-start justify-center text-white text-base font-['Press_Start_2P'] text-left">
                     Instructions:
                     <div class="h-4"></div>
-              Enter the player names (max 4 characters, no spaces) and press Start to begin the game.<br /><br />
-              After starting, take turns and try to win!
+              Enter the player names (max 4 characters, no spaces) and press Start to begin the game.
                     <div class="h-4"></div>
+              After starting, take turns and try to win!
+                    
             </div>
           </div>
         </template>
