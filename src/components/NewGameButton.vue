@@ -3,10 +3,10 @@
 </template>
 
 <script setup lang="ts">
-import { useBtnStore } from '../stores/counter';
+import { useTicTacToeStore } from '../stores/tictacvue';
 import BaseButton from './BaseButton.vue';
 const emit = defineEmits(['newGame']);
-const btnStore = useBtnStore()
+const btnStore = useTicTacToeStore()
 function onClick() {
   btnStore.onGame = true;
   emit('newGame');

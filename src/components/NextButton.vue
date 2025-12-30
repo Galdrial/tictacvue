@@ -3,10 +3,10 @@
 </template>
 
 <script setup lang="ts">
-import { useBtnStore } from '../stores/counter';
+import { useTicTacToeStore } from '../stores/tictacvue';
 import BaseButton from './BaseButton.vue';
 const emit = defineEmits(['reset']);
-const btnStore = useBtnStore()
+const btnStore = useTicTacToeStore()
 const props = defineProps<{ disabled?: boolean }>()
 function onClick() {
   if (!props.disabled) {

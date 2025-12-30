@@ -3,8 +3,8 @@ import BoardMain from './components/BoardMain.vue'
 import NewGameButton from './components/NewGameButton.vue'
 import NextButton from './components/NextButton.vue'
 import StateMessage from './components/StateMessage.vue'
-import { useBtnStore } from './stores/counter'
-const btnStore = useBtnStore()
+import { useTicTacToeStore } from './stores/tictacvue'
+const btnStore = useTicTacToeStore()
 </script>
 
 <template>

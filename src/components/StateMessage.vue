@@ -58,9 +58,9 @@
 
 <script setup lang="ts">
 import { computed, watch } from 'vue';
-import { useBtnStore } from '../stores/counter';
+import { useTicTacToeStore } from '../stores/tictacvue';
 import BaseButton from './BaseButton.vue';
-const btnStore = useBtnStore()
+const btnStore = useTicTacToeStore()
 
 const props = defineProps<{
   winner: string | null;

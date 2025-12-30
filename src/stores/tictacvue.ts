@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia';
 import { ref } from 'vue';
 
-export const useBtnStore = defineStore( 'btn', () => {
+export const useTicTacToeStore = defineStore( 'tictactoe', () => {
   const playerX = ref('');
   const playerO = ref('');
   const score = ref( { X: 0, O: 0, draw: 0 } )
