@@ -1,6 +1,6 @@
 <template>
   <!-- Button to proceed to the next round, uses BaseButton component -->
-  <BaseButton :disabled="disabled" @click="onClick">Next</BaseButton>
+  <BaseButton :disabled="disabled" @click="onClick" aria-label="Next round">Next</BaseButton>
 </template>
 
 <script setup lang="ts">

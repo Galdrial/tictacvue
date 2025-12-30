@@ -1,6 +1,6 @@
 <template>
   <!-- Button to start a new game, uses BaseButton component -->
-  <BaseButton @click="onClick">New Game</BaseButton>
+  <BaseButton @click="onClick" aria-label="Start a new game">New Game</BaseButton>
 </template>
 
 <script setup lang="ts">

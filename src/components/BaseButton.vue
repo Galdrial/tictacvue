@@ -14,6 +14,20 @@
     :disabled="disabled"
     @click="$emit('click', $event)"
     v-bind="$attrs"
+    role="button"
+    :aria-label="
+      typeof $attrs['aria-label'] === 'string' && $attrs['aria-label']
+        ? $attrs['aria-label']
+        : (typeof $slots.default === 'function'
+            ? (() => {
+                const slot = $slots.default();
+                const child = slot && slot[0]?.children;
+                return typeof child === 'string' ? child : undefined;
+              })()
+            : undefined)
+    "
+    tabindex="0"
+    @keydown.enter.space="$emit('click', $event)"
   >
     <!-- Slot for button content -->
     <slot />

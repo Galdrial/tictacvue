@@ -12,11 +12,11 @@
       <form class="flex flex-col items-center gap-4" @submit.prevent="confirmNames">
         <div class="flex flex-row items-center justify-center gap-4 w-full">
           <span class="text-[#F7901A] text-right">Player X:</span>
-          <input type="text" v-model="ticTacToeStore.playerX" placeholder="max4" maxlength="4" class="border border-[#F7901A] rounded px-2 py-1 w-25 text-white" @input="e => { const target = e.target as HTMLInputElement; if(target) ticTacToeStore.playerX = target.value.replace(/\s/g, '') }" />
+          <input type="text" v-model="ticTacToeStore.playerX" placeholder="max4" maxlength="4" class="border border-[#F7901A] rounded px-2 py-1 w-25 text-white" aria-label="Player X name" @input="e => { const target = e.target as HTMLInputElement; if(target) ticTacToeStore.playerX = target.value.replace(/\s/g, '') }" />
         </div>
         <div class="flex flex-row items-center justify-center gap-4 w-full">
           <span class="text-[#00f0ff] text-right">Player O:</span>
-          <input type="text" v-model="ticTacToeStore.playerO" placeholder="max4" maxlength="4" class="border border-[#00f0ff] rounded px-2 py-1 w-25 text-white" @input="e => { const target = e.target as HTMLInputElement; if(target) ticTacToeStore.playerO = target.value.replace(/\s/g, '') }" />
+          <input type="text" v-model="ticTacToeStore.playerO" placeholder="max4" maxlength="4" class="border border-[#00f0ff] rounded px-2 py-1 w-25 text-white" aria-label="Player O name" @input="e => { const target = e.target as HTMLInputElement; if(target) ticTacToeStore.playerO = target.value.replace(/\s/g, '') }" />
         </div>
         <BaseButton
           type="submit"

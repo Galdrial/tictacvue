@@ -24,11 +24,9 @@ import SquareBoard from './SquareBoard.vue';
 
 // Props:
 // - board: array representing the state of each square
-// - winner: current winner (if any)
 // - newGameSwitch: disables board when true
 defineProps<{
   board: (string | null)[];
-  winner: string | null;
   newGameSwitch: boolean;
 }>();
 
