@@ -1,0 +1,9 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" rx="60" fill="#0b0819"/>
+  <g stroke="#00f0ff" stroke-width="24" stroke-linecap="round">
+    <line x1="300" y1="150" x2="900" y2="480"/>
+    <line x1="900" y1="150" x2="300" y2="480"/>
+    <circle cx="600" cy="315" r="210" stroke="#F7901A" fill="none"/>
+  </g>
+  <text x="50%" y="90%" text-anchor="middle" fill="#F7901A" font-size="72" font-family="'Press Start 2P', monospace" font-weight="bold">Tic Tac Vue</text>
+</svg>
