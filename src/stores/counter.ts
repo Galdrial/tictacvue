@@ -55,8 +55,9 @@ export const useBtnStore = defineStore( 'btn', () => {
     board.value[index] = xIsNext.value ? 'X' : 'O';
     xIsNext.value = !xIsNext.value;
     winner.value = checkWinner( board.value );
-    // Se la board è piena e non c'è vincitore, incrementa il punteggio draw
+    // Se la board è piena e non c'è vincitore, imposta winner su 'draw' e incrementa il punteggio draw
     if (!board.value.includes(null) && winner.value === null) {
+      winner.value = 'draw';
       score.value.draw += 1;
     }
   };

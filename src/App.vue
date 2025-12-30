@@ -40,7 +40,7 @@ const btnStore = useBtnStore()
       <NewGameButton @newGame="btnStore.newGame" />
       <NextButton
         v-if="btnStore.onGame && !btnStore.newGameSwitch"
-        :disabled="btnStore.onGame && !btnStore.winner"
+        :disabled="btnStore.onGame && !btnStore.winner && btnStore.winner !== 'draw'"
         @reset="btnStore.resetGame"
       />
     </div>

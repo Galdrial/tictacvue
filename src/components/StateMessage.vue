@@ -77,11 +77,14 @@ const status = computed(() => {
   if (props.winner === 'O') {
     return { type: 'winner', name: btnStore.playerO, class: 'text-player-o' };
   }
+  if (props.winner === 'draw') {
+    return { type: 'draw', message: 'DRAW!' };
+  }
   if (!props.board.includes(null) && props.board.includes('X') && props.board.includes('O') && props.onGame === true) {
     return { type: 'draw', message: 'DRAW!' };
   }
-    if (props.onGame === false) {
-      return { type: 'welcome', message: 'Challenge your friends!<br>Play and claim victory!' };
+  if (props.onGame === false) {
+    return { type: 'welcome', message: 'Challenge your friends!<br>Play and claim victory!' };
   }
   if (props.xIsNext) {
     return { type: 'turn', name: btnStore.playerX, class: 'text-player-x' };
