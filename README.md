@@ -1,43 +1,60 @@
+
 # TicTacVue
 
-This template should help get you started developing with Vue 3 in Vite.
+<p align="center">
+  <img src="public/og-image.png" alt="TicTacVue preview" width="600" />
+</p>
 
-## Recommended IDE Setup
+TicTacVue is a retro-inspired Tic Tac Toe game built with Vue 3, Vite, Pinia, and Tailwind CSS. Challenge your friends, track your score, and enjoy a pixel-art look with custom fonts and responsive design.
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+## 🚀 Demo
 
-## Recommended Browser Setup
+Try it live: [https://tictacvue.vercel.app/](https://tictacvue.vercel.app/)
 
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd) 
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
+## Features
 
-## Type Support for `.vue` Imports in TS
+- Play Tic Tac Toe against a friend
+- Custom player names (max 4 characters, no spaces)
+- Score tracking for X, O, and draws
+- Responsive design for desktop and mobile
+- Retro pixel-art style with Press Start 2P font
+- Social sharing preview (Open Graph)
+- Built with Vue 3, Vite, Pinia, and Tailwind CSS
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+## Getting Started
 
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
-
-## Project Setup
+Clone the repository and install dependencies:
 
 ```sh
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+### Run in Development Mode
 
 ```sh
 npm run dev
 ```
 
-### Type-Check, Compile and Minify for Production
+### Build for Production
 
 ```sh
 npm run build
 ```
+
+## Project Structure
+
+- `src/` — Main source code (components, store, styles)
+- `public/` — Static assets (favicon, og-image, robots.txt)
+- `index.html` — App entry point
+
+## Credits
+
+- [Press Start 2P font](https://fonts.google.com/specimen/Press+Start+2P)
+- Icons from [FontAwesome](https://fontawesome.com/) and custom SVGs
+
+## License
+
+MIT
 
 ### Lint with [ESLint](https://eslint.org/)
 

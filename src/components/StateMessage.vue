@@ -1,6 +1,14 @@
 <template>
+  <!--
+    StateMessage component:
+    - Shows player name input form if starting a new game
+    - Displays score, winner, draw, turn, or welcome message based on game state
+    - Uses BaseButton for actions
+    - Input fields restrict spaces and max length
+  -->
   <div class="mb-4 text-xl font-bold text-center">
     <template v-if="props.newGameSwitch">
+      <!-- Player name input form -->
       <form class="flex flex-col items-center gap-4" @submit.prevent="confirmNames">
         <div class="flex flex-row items-center justify-center gap-4 w-full">
           <span class="text-[#F7901A] text-right">Player X:</span>
@@ -19,6 +27,7 @@
       </form>
     </template>
     <template v-else-if="ticTacToeStore.onGame === true && ticTacToeStore.playerX && ticTacToeStore.playerO">
+      <!-- Score and game status display -->
       <div class="text-white">
       Score:
       <br><br>
@@ -36,6 +45,7 @@
       </div>
     </template>
     <template v-else>
+      <!-- Welcome or status message when not in game -->
       <div>
         <template v-if="status.type === 'winner'">
           <span :class="status.class">{{ status.name }}</span> ha vinto!
@@ -57,11 +67,18 @@
 
 
 <script setup lang="ts">
+// Import Vue composition API and game store
 import { computed, watch } from 'vue';
 import { useTicTacToeStore } from '../stores/tictacvue';
 import BaseButton from './BaseButton.vue';
 const ticTacToeStore = useTicTacToeStore()
 
+// Props:
+// - winner: current winner ('X', 'O', 'draw', or null)
+// - xIsNext: true if X's turn
+// - board: current board state
+// - onGame: true if game is active
+// - newGameSwitch: true if starting a new game
 const props = defineProps<{
   winner: string | null;
   xIsNext: boolean;
@@ -70,6 +87,7 @@ const props = defineProps<{
   newGameSwitch: boolean;
 }>();
 
+// Computed status for UI display (winner, draw, turn, welcome)
 const status = computed(() => {
   if (props.winner === 'X') {
     return { type: 'winner', name: ticTacToeStore.playerX, class: 'text-player-x' };
@@ -80,12 +98,15 @@ const status = computed(() => {
   if (props.winner === 'draw') {
     return { type: 'draw', message: 'DRAW!' };
   }
+  // Check for draw if board is full and game is active
   if (!props.board.includes(null) && props.board.includes('X') && props.board.includes('O') && props.onGame === true) {
     return { type: 'draw', message: 'DRAW!' };
   }
+  // Show welcome message if game is not active
   if (props.onGame === false) {
     return { type: 'welcome', message: 'Challenge your friends!<br>Play and claim victory!' };
   }
+  // Show whose turn it is
   if (props.xIsNext) {
     return { type: 'turn', name: ticTacToeStore.playerX, class: 'text-player-x' };
   } else {
@@ -93,7 +114,7 @@ const status = computed(() => {
   }
 });
 
-// Aggiorna il punteggio solo quando cambia il winner
+// Watch for winner changes to update score
 watch(() => props.winner, (newWinner, oldWinner) => {
   if (newWinner && newWinner !== oldWinner) {
     if (newWinner === 'X') ticTacToeStore.score.X += 1;
@@ -101,9 +122,8 @@ watch(() => props.winner, (newWinner, oldWinner) => {
   }
 });
 
-
+// Confirm player names, convert to uppercase, start game
 function confirmNames() {
-  // Avvia la partita solo se entrambi i nomi sono compilati
   if (ticTacToeStore.playerX && ticTacToeStore.playerO) {
     ticTacToeStore.playerX = ticTacToeStore.playerX.toUpperCase();
     ticTacToeStore.playerO = ticTacToeStore.playerO.toUpperCase();
@@ -113,9 +133,11 @@ function confirmNames() {
 }
 </script>
 <style scoped>
+/* Style for Player X name and score */
 .text-player-x {
   color: #F7901A;
 }
+/* Style for Player O name and score */
 .text-player-o {
   color: #00f0ff;
 }

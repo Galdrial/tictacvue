@@ -1,17 +1,21 @@
 <script setup lang="ts">
+// Import main components for layout and game logic
 import AppFooter from './components/AppFooter.vue'
 import BoardMain from './components/BoardMain.vue'
 import NewGameButton from './components/NewGameButton.vue'
 import NextButton from './components/NextButton.vue'
 import StateMessage from './components/StateMessage.vue'
 import { useTicTacToeStore } from './stores/tictacvue'
+// Initialize the Pinia store for game state
 const ticTacToeStore = useTicTacToeStore()
 </script>
 
 <template>
+  <!-- Main app container: flex column, fills viewport height -->
   <div class="flex flex-col min-h-screen">
     <header>
       <a href="/">
+        <!-- App title: retro font, orange color, glowing text shadow, responsive size -->
         <h1
           class="flex justify-center font-['Press_Start_2P'] text-[2rem] sm:text-[60px] font-bold text-[#F7901A] text-shadow-[0_0_8px_#F7901A,0_0_16px_#F7901A] pt-8 pb-8"
         >
@@ -20,6 +24,7 @@ const ticTacToeStore = useTicTacToeStore()
       </a>
     </header>
     <main class="flex-1">
+      <!-- StateMessage: shows game status, player names, score, and messages -->
       <div class="flex justify-center h-38">
         <StateMessage
           :winner="ticTacToeStore.winner"
@@ -29,6 +34,7 @@ const ticTacToeStore = useTicTacToeStore()
           :newGameSwitch="ticTacToeStore.newGameSwitch"
         />
       </div>
+      <!-- BoardMain: main Tic Tac Toe board -->
       <div class="flex flex-col items-center font-sans text-gray-800 py-8">
         <BoardMain
           :board="ticTacToeStore.board"
@@ -37,6 +43,7 @@ const ticTacToeStore = useTicTacToeStore()
           @square-click="ticTacToeStore.handleSquareClick"
         />
       </div>
+      <!-- Game control buttons: New Game and Next (for new round) -->
       <div class="flex justify-center gap-4 mt-4">
         <NewGameButton @newGame="ticTacToeStore.newGame" />
         <NextButton
@@ -46,10 +53,13 @@ const ticTacToeStore = useTicTacToeStore()
         />
       </div>
     </main>
+    <!-- Footer: social links and copyright -->
     <footer class="mt-8">
       <AppFooter />
     </footer>
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+/* No additional styles here; all layout and design handled by Tailwind utility classes and component styles */
+</style>

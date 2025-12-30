@@ -2,7 +2,9 @@
 <html lang="it">
 
 <head>
+  <!-- Character encoding -->
   <meta charset="UTF-8">
+  <!-- Page description for SEO -->
   <meta name="description" content="Gioco Tic Tac Toe realizzato con Vue e Vite. Sfida un amico!">
   <!-- Open Graph meta tags for social sharing -->
   <meta property="og:title" content="Tic Tac Vue - Play Tic Tac Toe Online!" />
@@ -10,16 +12,23 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://tictacvue.vercel.app/" />
   <meta property="og:image" content="https://tictacvue.vercel.app/og-image.png" />
+  <!-- Favicon for browser tab -->
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <!-- Main CSS file -->
   <link href="src/assets/css/main.css" rel="stylesheet">
+  <!-- Responsive viewport settings -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Preload custom font for faster rendering -->
   <link rel="preload" href="src/assets/font/PressStart2P-Regular.ttf" as="font" type="font/ttf" crossorigin>
+  <!-- Page title -->
   <title>Tic Tac Vue</title>
 </head>
 
 <body>
 
+  <!-- Vue app will be mounted here -->
   <div id="app"></div>
+  <!-- Main entry script for Vue application -->
   <script type="module" src="src/main.ts"></script>
 </body>
 

@@ -1,5 +1,14 @@
+/*
+  base.css - Global styles for TicTacVue
+  - Font face definition
+  - Tailwind import
+  - CSS reset and box model
+  - Body layout and background
+  - Responsive adjustments for mobile
+*/
 
 @font-face {
+  /* Custom pixel font for retro look */
   font-family: 'Press Start 2P';
   src: url('../font/PressStart2P-Regular.ttf') format('truetype');
   font-weight: normal;
@@ -8,6 +17,7 @@
 
 @import 'tailwindcss';
 
+/* Reset box model and default margin for all elements */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -15,12 +25,15 @@
 }
 
 body {
+  /* Main layout: vertical flex, centered content */
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  /* Tron-inspired pixel art background */
   background: url('../img/tronpixelart-1280x720.webp') center center / cover no-repeat;
+  /* Font stack: pixel font first, then system fonts */
   font-family: 'Press Start 2P', Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   font-size: 15px;
   line-height: 1.6;
@@ -31,6 +44,7 @@ body {
 }
 
 @media (max-width: 600px) {
+  /* Mobile adjustments: full viewport height, left-aligned, smaller font */
   body {
     min-height: 100svh;
     height: 100svh;

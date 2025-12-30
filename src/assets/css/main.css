@@ -1,12 +1,16 @@
+/* Responsive button styles for mobile devices */
 @media (max-width: 600px) {
   button {
     font-size: 1rem !important;
     padding: 0.5rem 1rem !important;
   }
 }
+
+/* Import base styles and Tailwind utilities */
 @import './base.css';
 @import 'tailwindcss';
 
+/* Center the main app container using flexbox */
 #app {
   display: flex;
   flex-direction: column;
@@ -15,6 +19,7 @@
   font-weight: normal;
 }
 
+/* Adjust app container for mobile: full viewport height, no margin/padding, scrollable */
 @media (max-width: 600px) {
   #app {
     min-height: 100svh;
@@ -27,11 +32,13 @@
   }
 }
 
+/* Remove underline from links and add transition effect */
  a {
   text-decoration: none;
   transition: 0.4s;
 }
 
+/* Center body content on large screens using flexbox */
 @media (min-width: 1024px) {
   body {
     display: flex;
