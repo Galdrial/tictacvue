@@ -5,13 +5,13 @@
       
       <div class="flex justify-center gap-4 sm:gap-2" aria-label="Social links">
         <a href="https://github.com/Galdrial" target="_blank" rel="noopener" aria-label="GitHub profile">
-          <img src="../assets/github.png" alt="GitHub" width="32" height="32" class="hover:scale-120 transition-transform duration-200" />
+          <img src="../assets/img/github.png" alt="GitHub" width="32" height="32" class="hover:scale-120 transition-transform duration-200" />
         </a>
         <a href="https://simonecamerano.dev" target="_blank" rel="noopener" aria-label="Personal website">
-          <img src="../assets/site.png" alt="Website" width="32" height="32" class="hover:scale-120 transition-transform duration-200"/>
+          <img src="../assets/img/site.png" alt="Website" width="32" height="32" class="hover:scale-120 transition-transform duration-200"/>
         </a>
         <a href="https://www.linkedin.com/in/simone-camerano/" target="_blank" rel="noopener" aria-label="LinkedIn profile">
-          <img src="../assets/linkedin.png" alt="LinkedIn" width="32" height="32" class="hover:scale-120 transition-transform duration-200" />
+          <img src="../assets/img/linkedin.png" alt="LinkedIn" width="32" height="32" class="hover:scale-120 transition-transform duration-200" />
         </a>
       </div>
     </nav>

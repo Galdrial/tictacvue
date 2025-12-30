@@ -31,7 +31,7 @@
         {{ status.message }}
       </template>
       <template v-else-if="status.type === 'turn'">
-        Tocca a:<span :class="status.class">{{ status.name }}</span>
+        Turn:<span :class="status.class">{{ status.name }}</span>
       </template>
       </div>
     </template>
@@ -48,7 +48,7 @@
           </div>
         </template>
         <template v-else-if="status.type === 'turn'">
-          Tocca a: <span :class="status.class">{{ status.name }}</span>
+          Turn: <span :class="status.class">{{ status.name }}</span>
         </template>
       </div>
     </template>
