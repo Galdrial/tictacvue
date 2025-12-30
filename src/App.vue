@@ -36,14 +36,25 @@ const ticTacToeStore = useTicTacToeStore()
           :newGameSwitch="ticTacToeStore.newGameSwitch"
         />
       </div>
-      <!-- BoardMain: main Tic Tac Toe board -->
+      <!-- BoardMain: main Tic Tac Toe board OR instructions -->
       <div class="flex flex-col items-center font-sans text-gray-800 py-8">
-        <BoardMain
-          :board="ticTacToeStore.board"
-          :winner="ticTacToeStore.winner"
-          :newGameSwitch="ticTacToeStore.newGameSwitch"
-          @square-click="ticTacToeStore.handleSquareClick"
-        />
+        <template v-if="!ticTacToeStore.newGameSwitch">
+          <BoardMain
+            :board="ticTacToeStore.board"
+            :winner="ticTacToeStore.winner"
+            :newGameSwitch="ticTacToeStore.newGameSwitch"
+            @square-click="ticTacToeStore.handleSquareClick"
+          />
+        </template>
+        <template v-else>
+          <div class="grid grid-cols-3 grid-rows-3 gap-2 bg-[rgba(11,8,25,0.9)] border-8 border-[#00f0ff] shadow-[0_0_8px_#00f0ff,0_0_16px_#00f0ff] p-4 rounded-lg aspect-square mx-auto w-[90vw] max-w-100">
+              <div class="col-span-3 row-span-3 w-full h-full flex flex-col items-start justify-center text-white text-base font-['Press_Start_2P'] text-left">
+              <b>Instructions:</b><br>
+              Enter the player names (max 4 characters, no spaces) and press Start to begin the game.<br><br>
+              After starting, take turns and try to win!
+            </div>
+          </div>
+        </template>
       </div>
       <!-- Game control buttons: New Game and Next (for new round) -->
       <div class="flex justify-center gap-4 mt-4">
