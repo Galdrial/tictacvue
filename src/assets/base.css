@@ -20,7 +20,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: url('./tronpixelart-1280x720.webp') center center / cover no-repeat;
+  background: url('tronpixelart-1280x720.webp') center center / cover no-repeat;
   font-family: 'Press Start 2P', Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   font-size: 15px;
   line-height: 1.6;
