@@ -14,14 +14,16 @@ const ticTacToeStore = useTicTacToeStore()
   <!-- Main app container: flex column, fills viewport height -->
   <div class="flex flex-col min-h-screen">
     <header>
-      <a href="/">
+      <router-link to="/">
         <!-- App title: retro font, orange color, glowing text shadow, responsive size -->
         <h1
           class="flex justify-center font-['Press_Start_2P'] text-[2rem] sm:text-[60px] font-bold text-[#F7901A] text-shadow-[0_0_8px_#F7901A,0_0_16px_#F7901A] pt-8 pb-8"
+          style="cursor:pointer"
+          @click.prevent="ticTacToeStore.fullReset()"
         >
           TIC TAC VUE
         </h1>
-      </a>
+      </router-link>
     </header>
     <main class="flex-1">
       <!-- StateMessage: shows game status, player names, score, and messages -->

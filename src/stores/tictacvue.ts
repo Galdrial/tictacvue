@@ -45,13 +45,11 @@ export const useTicTacToeStore = defineStore( 'tictactoe', () => {
   // Reset the board for a new round (keeps scores)
   function resetGame() {
     board.value = Array( 9 ).fill( null );
-    /* xIsNext.value = true; */
     winner.value = null;
   };
 
   // Start a completely new game (resets scores and player names)
   function newGame() {
-    // Player names are managed via input form
     playerX.value = '';
     playerO.value = '';
     newGameSwitch.value = true;
@@ -60,6 +58,29 @@ export const useTicTacToeStore = defineStore( 'tictactoe', () => {
     winner.value = null;
     xIsNext.value = true;
     score.value = { X: 0, O: 0, draw: 0 }
+  }
+
+  /**
+   * Completely reset all game state to initial values, as if the page was refreshed.
+   * This includes player names, scores, board, winner, turn, and game flags.
+   * Used for a true app reset from the header/title click.
+   */
+  function fullReset() {
+    // Clear player names
+    playerX.value = '';
+    playerO.value = '';
+    // Reset scores for X, O, and draws
+    score.value = { X: 0, O: 0, draw: 0 };
+    // Hide new game input form
+    newGameSwitch.value = false;
+    // Set game as not started
+    onGame.value = false;
+    // Restore board to initial state (welcome message)
+    board.value = [...start.value];
+    // Clear winner
+    winner.value = null;
+    // Set turn to X
+    xIsNext.value = true;
   }
 
   // Handle click on a square: update board, check winner, update score for draw
@@ -76,5 +97,5 @@ export const useTicTacToeStore = defineStore( 'tictactoe', () => {
   };
 
   // Expose state and functions to components
-  return { start, board, winner, resetGame, xIsNext, winningLines, checkWinner, handleSquareClick, onGame, newGame, newGameSwitch, playerX, playerO, score}
+  return { start, board, winner, resetGame, xIsNext, winningLines, checkWinner, handleSquareClick, onGame, newGame, newGameSwitch, playerX, playerO, score, fullReset }
 } )
