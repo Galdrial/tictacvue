@@ -6,9 +6,9 @@
 import { useTicTacToeStore } from '../stores/tictacvue';
 import BaseButton from './BaseButton.vue';
 const emit = defineEmits(['newGame']);
-const btnStore = useTicTacToeStore()
+const ticTacToeStore = useTicTacToeStore()
 function onClick() {
-  btnStore.onGame = true;
+  ticTacToeStore.onGame = true;
   emit('newGame');
 }
 </script>

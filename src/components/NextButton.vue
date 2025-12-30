@@ -6,11 +6,11 @@
 import { useTicTacToeStore } from '../stores/tictacvue';
 import BaseButton from './BaseButton.vue';
 const emit = defineEmits(['reset']);
-const btnStore = useTicTacToeStore()
+const ticTacToeStore = useTicTacToeStore()
 const props = defineProps<{ disabled?: boolean }>()
 function onClick() {
   if (!props.disabled) {
-    btnStore.onGame = true;
+    ticTacToeStore.onGame = true;
     emit('reset');
   }
 }

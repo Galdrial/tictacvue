@@ -4,25 +4,25 @@
       <form class="flex flex-col items-center gap-4" @submit.prevent="confirmNames">
         <div class="flex flex-row items-center justify-center gap-4 w-full">
           <span class="text-[#F7901A] text-right">Player X:</span>
-          <input type="text" v-model="btnStore.playerX" placeholder="Name" maxlength="4" class="border border-[#F7901A] rounded px-2 py-1 w-25 text-white" />
+          <input type="text" v-model="ticTacToeStore.playerX" placeholder="max4" maxlength="4" class="border border-[#F7901A] rounded px-2 py-1 w-25 text-white" />
         </div>
         <div class="flex flex-row items-center justify-center gap-4 w-full">
           <span class="text-[#00f0ff] text-right">Player O:</span>
-          <input type="text" v-model="btnStore.playerO" placeholder="Name" maxlength="4" class="border border-[#00f0ff] rounded px-2 py-1 w-25 text-white" />
+          <input type="text" v-model="ticTacToeStore.playerO" placeholder="max4" maxlength="4" class="border border-[#00f0ff] rounded px-2 py-1 w-25 text-white" />
         </div>
         <BaseButton
           type="submit"
-          :disabled="!btnStore.playerX || !btnStore.playerO"
+          :disabled="!ticTacToeStore.playerX || !ticTacToeStore.playerO"
         >
           Start
         </BaseButton>
       </form>
     </template>
-    <template v-else-if="btnStore.onGame === true && btnStore.playerX && btnStore.playerO">
+    <template v-else-if="ticTacToeStore.onGame === true && ticTacToeStore.playerX && ticTacToeStore.playerO">
       <div class="text-white">
       Score:
       <br><br>
-      <span class="text-player-x">{{ `${btnStore.playerX}:` }}</span>{{ btnStore.score.X }} <span class="text-player-o">{{ `${btnStore.playerO}:` }}</span>{{ btnStore.score.O }} DRAW:{{ btnStore.score.draw }}
+      <span class="text-player-x">{{ `${ticTacToeStore.playerX}:` }}</span>{{ ticTacToeStore.score.X }} <span class="text-player-o">{{ `${ticTacToeStore.playerO}:` }}</span>{{ ticTacToeStore.score.O }} DRAW:{{ ticTacToeStore.score.draw }}
       <br><br>
       <template v-if="status.type === 'winner'">
         <span :class="status.class">{{ status.name }}</span> ha vinto!
@@ -44,7 +44,7 @@
           {{ status.message }}
         </template>
         <template v-else-if="status.type === 'welcome'">
-          <div class="pt-6 sm:pt-0 sm:w-130 sm:text-3xl text-white" v-html="status.message">
+          <div class="sm:w-130 sm:text-3xl text-white" v-html="status.message">
           </div>
         </template>
         <template v-else-if="status.type === 'turn'">
@@ -60,7 +60,7 @@
 import { computed, watch } from 'vue';
 import { useTicTacToeStore } from '../stores/tictacvue';
 import BaseButton from './BaseButton.vue';
-const btnStore = useTicTacToeStore()
+const ticTacToeStore = useTicTacToeStore()
 
 const props = defineProps<{
   winner: string | null;
@@ -72,10 +72,10 @@ const props = defineProps<{
 
 const status = computed(() => {
   if (props.winner === 'X') {
-    return { type: 'winner', name: btnStore.playerX, class: 'text-player-x' };
+    return { type: 'winner', name: ticTacToeStore.playerX, class: 'text-player-x' };
   }
   if (props.winner === 'O') {
-    return { type: 'winner', name: btnStore.playerO, class: 'text-player-o' };
+    return { type: 'winner', name: ticTacToeStore.playerO, class: 'text-player-o' };
   }
   if (props.winner === 'draw') {
     return { type: 'draw', message: 'DRAW!' };
@@ -87,28 +87,28 @@ const status = computed(() => {
     return { type: 'welcome', message: 'Challenge your friends!<br>Play and claim victory!' };
   }
   if (props.xIsNext) {
-    return { type: 'turn', name: btnStore.playerX, class: 'text-player-x' };
+    return { type: 'turn', name: ticTacToeStore.playerX, class: 'text-player-x' };
   } else {
-    return { type: 'turn', name: btnStore.playerO, class: 'text-player-o' };
+    return { type: 'turn', name: ticTacToeStore.playerO, class: 'text-player-o' };
   }
 });
 
 // Aggiorna il punteggio solo quando cambia il winner
 watch(() => props.winner, (newWinner, oldWinner) => {
   if (newWinner && newWinner !== oldWinner) {
-    if (newWinner === 'X') btnStore.score.X += 1;
-    if (newWinner === 'O') btnStore.score.O += 1;
+    if (newWinner === 'X') ticTacToeStore.score.X += 1;
+    if (newWinner === 'O') ticTacToeStore.score.O += 1;
   }
 });
 
 
 function confirmNames() {
   // Avvia la partita solo se entrambi i nomi sono compilati
-  if (btnStore.playerX && btnStore.playerO) {
-    btnStore.playerX = btnStore.playerX.toUpperCase();
-    btnStore.playerO = btnStore.playerO.toUpperCase();
-    btnStore.newGameSwitch = false;
-    btnStore.onGame = true;
+  if (ticTacToeStore.playerX && ticTacToeStore.playerO) {
+    ticTacToeStore.playerX = ticTacToeStore.playerX.toUpperCase();
+    ticTacToeStore.playerO = ticTacToeStore.playerO.toUpperCase();
+    ticTacToeStore.newGameSwitch = false;
+    ticTacToeStore.onGame = true;
   }
 }
 </script>
