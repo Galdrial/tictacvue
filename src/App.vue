@@ -49,8 +49,8 @@ const ticTacToeStore = useTicTacToeStore()
         <template v-else>
           <div class="grid grid-cols-3 grid-rows-3 gap-2 bg-[rgba(11,8,25,0.9)] border-8 border-[#00f0ff] shadow-[0_0_8px_#00f0ff,0_0_16px_#00f0ff] p-4 rounded-lg aspect-square mx-auto w-[90vw] max-w-100">
               <div class="col-span-3 row-span-3 w-full h-full flex flex-col items-start justify-center text-white text-base font-['Press_Start_2P'] text-left">
-              <b>Instructions:</b><br>
-              Enter the player names (max 4 characters, no spaces) and press Start to begin the game.<br><br>
+              Instructions:<br /><br />
+              Enter the player names (max 4 characters, no spaces) and press Start to begin the game.<br /><br />
               After starting, take turns and try to win!
             </div>
           </div>
