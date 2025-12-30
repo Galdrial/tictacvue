@@ -7,8 +7,8 @@ export const useTicTacToeStore = defineStore( 'tictactoe', () => {
   const score = ref( { X: 0, O: 0, draw: 0 } )
   const newGameSwitch = ref( false )
   const onGame = ref( false )
-  const inizio = ref( 'XOXOXOXOX'.split( '' ) ) 
-  const board = ref<(string | null)[]>([...inizio.value])
+  const start = ref( 'XOXOXOXOX'.split( '' ) ) 
+  const board = ref<(string | null)[]>([...start.value])
   const winner = ref<string | null>( null )
   const xIsNext = ref( true );
   const winningLines = [
@@ -62,5 +62,5 @@ export const useTicTacToeStore = defineStore( 'tictactoe', () => {
     }
   };
 
-  return { inizio, board, winner, resetGame, xIsNext, winningLines, checkWinner, handleSquareClick, onGame, newGame, newGameSwitch, playerX, playerO, score}
+  return { start, board, winner, resetGame, xIsNext, winningLines, checkWinner, handleSquareClick, onGame, newGame, newGameSwitch, playerX, playerO, score}
 } )
