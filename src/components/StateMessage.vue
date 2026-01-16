@@ -34,7 +34,7 @@
       <span class="text-player-x">{{ `${ticTacToeStore.playerX}:` }}</span>{{ ticTacToeStore.score.X }} <span class="text-player-o">{{ `${ticTacToeStore.playerO}:` }}</span>{{ ticTacToeStore.score.O }} DRAW:{{ ticTacToeStore.score.draw }}
       <br><br>
       <template v-if="status.type === 'winner'">
-        <span :class="status.class">{{ status.name }}</span> ha vinto!
+        <span :class="status.class">{{ status.name }}</span> wins!
       </template>
       <template v-else-if="status.type === 'draw'">
         {{ status.message }}
@@ -48,7 +48,7 @@
       <!-- Welcome or status message when not in game -->
       <div>
         <template v-if="status.type === 'winner'">
-          <span :class="status.class">{{ status.name }}</span> ha vinto!
+          <span :class="status.class">{{ status.name }}</span> wins!
         </template>
         <template v-else-if="status.type === 'draw'">
           {{ status.message }}
